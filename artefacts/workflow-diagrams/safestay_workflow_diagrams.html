@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safe-Stay AI — Workflow Diagrams</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 40px;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #6b6b6b;
+    margin-bottom: 36px;
+  }
+  .diagram-wrapper {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+  }
+  svg { width: 100%; overflow: visible; }
+
+  /* Node styles */
+  .node-teal   { fill: #e1f5ee; stroke: #0f6e56; }
+  .node-purple { fill: #eeedfe; stroke: #534ab7; }
+  .node-amber  { fill: #faeeda; stroke: #854f0b; }
+  .node-green  { fill: #eaf3de; stroke: #3b6d11; }
+  .node-coral  { fill: #faece7; stroke: #993c1d; }
+  .node-gray   { fill: #f1efe8; stroke: #5f5e5a; }
+  .node-blue   { fill: #e6f1fb; stroke: #185fa5; }
+
+  .label-teal   { fill: #085041; }
+  .label-purple { fill: #3c3489; }
+  .label-amber  { fill: #633806; }
+  .label-green  { fill: #27500a; }
+  .label-coral  { fill: #712b13; }
+  .label-gray   { fill: #444441; }
+  .label-blue   { fill: #0c447c; }
+
+  .sub-teal   { fill: #0f6e56; }
+  .sub-purple { fill: #534ab7; }
+  .sub-amber  { fill: #854f0b; }
+  .sub-green  { fill: #3b6d11; }
+  .sub-coral  { fill: #993c1d; }
+  .sub-gray   { fill: #5f5e5a; }
+  .sub-blue   { fill: #185fa5; }
+
+  .header-teal   { fill: #1d9e75; }
+  .header-purple { fill: #7f77dd; }
+  .header-gray   { fill: #888780; }
+
+  .arr { stroke: #888780; stroke-width: 1.5; fill: none; }
+  .divider { stroke: #e5e5e5; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+
+  text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .th  { font-size: 13px; font-weight: 600; }
+  .ts  { font-size: 11px; font-weight: 400; }
+  .hd  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+
+  .meta {
+    font-size: 12px;
+    color: #888;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e5e5;
+  }
+</style>
+</head>
+<body>
+
+<h1>Safe-Stay AI — Workflow Diagrams</h1>
+<p class="subtitle">SWE6011 Agile Programming · Assignment 2 Artefact · Numair Alsaleh (2529226)</p>
+
+<div class="diagram-wrapper">
+  <p class="section-label">Host journey</p>
+  <svg viewBox="0 0 760 230">
+    <defs>
+      <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- Row 1 -->
+    <!-- Register -->
+    <rect x="10" y="10" width="120" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="70" y="32" text-anchor="middle" dominant-baseline="central">Register</text>
+    <text class="ts sub-teal" x="70" y="50" text-anchor="middle" dominant-baseline="central">Create host account</text>
+
+    <line x1="130" y1="35" x2="148" y2="35" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Login -->
+    <rect x="150" y="10" width="120" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="210" y="32" text-anchor="middle" dominant-baseline="central">Login</text>
+    <text class="ts sub-teal" x="210" y="50" text-anchor="middle" dominant-baseline="central">Authenticate as host</text>
+
+    <line x1="270" y1="35" x2="288" y2="35" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Create Property -->
+    <rect x="290" y="10" width="140" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="360" y="32" text-anchor="middle" dominant-baseline="central">Create property</text>
+    <text class="ts sub-teal" x="360" y="50" text-anchor="middle" dominant-baseline="central">Name, address, details</text>
+
+    <line x1="430" y1="35" x2="448" y2="35" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Upload Manual -->
+    <rect x="450" y="10" width="140" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="520" y="32" text-anchor="middle" dominant-baseline="central">Upload manual</text>
+    <text class="ts sub-teal" x="520" y="50" text-anchor="middle" dominant-baseline="central">House rules + FAQ</text>
+
+    <line x1="590" y1="35" x2="608" y2="35" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Host Dashboard -->
+    <rect x="610" y="10" width="140" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="680" y="32" text-anchor="middle" dominant-baseline="central">Host dashboard</text>
+    <text class="ts sub-teal" x="680" y="50" text-anchor="middle" dominant-baseline="central">Overview panel</text>
+
+    <!-- Arrow down from dashboard -->
+    <line x1="680" y1="60" x2="680" y2="78" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Row 2 (reverse direction) -->
+    <!-- View Q&A -->
+    <rect x="610" y="80" width="140" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="680" y="101" text-anchor="middle" dominant-baseline="central">View Q&amp;A log</text>
+    <text class="ts sub-teal" x="680" y="119" text-anchor="middle" dominant-baseline="central">AI-handled questions</text>
+
+    <line x1="608" y1="105" x2="592" y2="105" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- View Maintenance -->
+    <rect x="450" y="80" width="140" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="520" y="101" text-anchor="middle" dominant-baseline="central">View maintenance</text>
+    <text class="ts sub-teal" x="520" y="119" text-anchor="middle" dominant-baseline="central">Open issue reports</text>
+
+    <line x1="448" y1="105" x2="432" y2="105" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Update Status -->
+    <rect x="290" y="80" width="140" height="50" rx="8" class="node-teal" stroke-width="0.8"/>
+    <text class="th label-teal" x="360" y="101" text-anchor="middle" dominant-baseline="central">Update status</text>
+    <text class="ts sub-teal" x="360" y="119" text-anchor="middle" dominant-baseline="central">Assign priority</text>
+
+    <line x1="288" y1="105" x2="272" y2="105" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Resolve Issue -->
+    <rect x="150" y="80" width="120" height="50" rx="8" class="node-green" stroke-width="0.8"/>
+    <text class="th label-green" x="210" y="101" text-anchor="middle" dominant-baseline="central">Resolve issue</text>
+    <text class="ts sub-green" x="210" y="119" text-anchor="middle" dominant-baseline="central">Mark as resolved</text>
+
+    <line x1="148" y1="105" x2="132" y2="105" class="arr" marker-end="url(#arr1)"/>
+
+    <!-- Guest notified -->
+    <rect x="10" y="80" width="120" height="50" rx="8" class="node-green" stroke-width="0.8"/>
+    <text class="th label-green" x="70" y="101" text-anchor="middle" dominant-baseline="central">Guest notified</text>
+    <text class="ts sub-green" x="70" y="119" text-anchor="middle" dominant-baseline="central">Status updated</text>
+
+    <!-- Legend row -->
+    <rect x="10" y="165" width="12" height="12" rx="2" class="node-teal" stroke-width="0.8"/>
+    <text class="ts" x="26" y="175" dominant-baseline="central" fill="#444">Host action</text>
+    <rect x="120" y="165" width="12" height="12" rx="2" class="node-green" stroke-width="0.8"/>
+    <text class="ts" x="136" y="175" dominant-baseline="central" fill="#444">Completion state</text>
+  </svg>
+</div>
+
+<div class="diagram-wrapper">
+  <p class="section-label">Guest journey</p>
+  <svg viewBox="0 0 760 260">
+    <defs>
+      <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- Row 1 -->
+    <rect x="10" y="10" width="120" height="50" rx="8" class="node-purple" stroke-width="0.8"/>
+    <text class="th label-purple" x="70" y="32" text-anchor="middle" dominant-baseline="central">Receive link</text>
+    <text class="ts sub-purple" x="70" y="50" text-anchor="middle" dominant-baseline="central">From host/booking</text>
+
+    <line x1="130" y1="35" x2="148" y2="35" class="arr" marker-end="url(#arr2)"/>
+
+    <rect x="150" y="10" width="130" height="50" rx="8" class="node-purple" stroke-width="0.8"/>
+    <text class="th label-purple" x="215" y="32" text-anchor="middle" dominant-baseline="central">Access portal</text>
+    <text class="ts sub-purple" x="215" y="50" text-anchor="middle" dominant-baseline="central">Property-specific page</text>
+
+    <line x1="280" y1="35" x2="298" y2="35" class="arr" marker-end="url(#arr2)"/>
+
+    <rect x="300" y="10" width="130" height="50" rx="8" class="node-purple" stroke-width="0.8"/>
+    <text class="th label-purple" x="365" y="32" text-anchor="middle" dominant-baseline="central">Ask question</text>
+    <text class="ts sub-purple" x="365" y="50" text-anchor="middle" dominant-baseline="central">Type into chat input</text>
+
+    <line x1="430" y1="35" x2="448" y2="35" class="arr" marker-end="url(#arr2)"/>
+
+    <!-- AI Processes -->
+    <rect x="450" y="10" width="140" height="50" rx="8" class="node-amber" stroke-width="0.8"/>
+    <text class="th label-amber" x="520" y="32" text-anchor="middle" dominant-baseline="central">AI processes</text>
+    <text class="ts sub-amber" x="520" y="50" text-anchor="middle" dominant-baseline="central">Reads house manual</text>
+
+    <line x1="590" y1="35" x2="608" y2="35" class="arr" marker-end="url(#arr2)"/>
+
+    <!-- Receive Answer -->
+    <rect x="610" y="10" width="140" height="50" rx="8" class="node-green" stroke-width="0.8"/>
+    <text class="th label-green" x="680" y="32" text-anchor="middle" dominant-baseline="central">Receive answer</text>
+    <text class="ts sub-green" x="680" y="50" text-anchor="middle" dominant-baseline="central">Instant AI response</text>
+
+    <!-- Arrow down -->
+    <line x1="680" y1="60" x2="680" y2="78" class="arr" marker-end="url(#arr2)"/>
+
+    <!-- Satisfied decision diamond -->
+    <polygon points="680,80 720,105 680,130 640,105" fill="#f1efe8" stroke="#5f5e5a" stroke-width="0.8"/>
+    <text class="ts label-gray" x="680" y="108" text-anchor="middle" dominant-baseline="central">Satisfied?</text>
+
+    <!-- Yes path left -->
+    <line x1="638" y1="105" x2="592" y2="105" class="arr" marker-end="url(#arr2)"/>
+    <text class="ts" x="615" y="98" text-anchor="middle" fill="#3b6d11" font-weight="600">Yes</text>
+
+    <rect x="450" y="80" width="140" height="50" rx="8" class="node-green" stroke-width="0.8"/>
+    <text class="th label-green" x="520" y="101" text-anchor="middle" dominant-baseline="central">Done</text>
+    <text class="ts sub-green" x="520" y="119" text-anchor="middle" dominant-baseline="central">Question resolved ✓</text>
+
+    <!-- No path down -->
+    <line x1="680" y1="130" x2="680" y2="148" class="arr" marker-end="url(#arr2)"/>
+    <text class="ts" x="692" y="142" fill="#993c1d" font-weight="600">No</text>
+
+    <!-- Report issue -->
+    <rect x="610" y="150" width="140" height="50" rx="8" class="node-coral" stroke-width="0.8"/>
+    <text class="th label-coral" x="680" y="171" text-anchor="middle" dominant-baseline="central">Report issue</text>
+    <text class="ts sub-coral" x="680" y="189" text-anchor="middle" dominant-baseline="central">Describe the problem</text>
+
+    <line x1="608" y1="175" x2="592" y2="175" class="arr" marker-end="url(#arr2)"/>
+
+    <!-- Confirmed -->
+    <rect x="450" y="150" width="140" height="50" rx="8" class="node-coral" stroke-width="0.8"/>
+    <text class="th label-coral" x="520" y="171" text-anchor="middle" dominant-baseline="central">Confirmed</text>
+    <text class="ts sub-coral" x="520" y="189" text-anchor="middle" dominant-baseline="central">Report logged, host alerted</text>
+
+    <!-- Legend -->
+    <rect x="10" y="210" width="12" height="12" rx="2" class="node-purple" stroke-width="0.8"/>
+    <text class="ts" x="26" y="220" dominant-baseline="central" fill="#444">Guest action</text>
+    <rect x="120" y="210" width="12" height="12" rx="2" class="node-amber" stroke-width="0.8"/>
+    <text class="ts" x="136" y="220" dominant-baseline="central" fill="#444">AI processing</text>
+    <rect x="240" y="210" width="12" height="12" rx="2" class="node-green" stroke-width="0.8"/>
+    <text class="ts" x="256" y="220" dominant-baseline="central" fill="#444">Completion state</text>
+    <rect x="380" y="210" width="12" height="12" rx="2" class="node-coral" stroke-width="0.8"/>
+    <text class="ts" x="396" y="220" dominant-baseline="central" fill="#444">Issue / escalation</text>
+  </svg>
+</div>
+
+<div class="diagram-wrapper">
+  <p class="section-label">System layer — always running</p>
+  <svg viewBox="0 0 760 90">
+    <defs>
+      <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <rect x="10"  y="10" width="160" height="55" rx="8" class="node-gray" stroke-width="0.8"/>
+    <text class="th label-gray" x="90" y="31" text-anchor="middle" dominant-baseline="central">MySQL database</text>
+    <text class="ts sub-gray" x="90" y="50" text-anchor="middle" dominant-baseline="central">Users, properties, manuals</text>
+
+    <rect x="190" y="10" width="160" height="55" rx="8" class="node-amber" stroke-width="0.8"/>
+    <text class="th label-amber" x="270" y="31" text-anchor="middle" dominant-baseline="central">OpenAI / Groq API</text>
+    <text class="ts sub-amber" x="270" y="50" text-anchor="middle" dominant-baseline="central">AI response generation</text>
+
+    <rect x="370" y="10" width="160" height="55" rx="8" class="node-gray" stroke-width="0.8"/>
+    <text class="th label-gray" x="450" y="31" text-anchor="middle" dominant-baseline="central">Laravel auth</text>
+    <text class="ts sub-gray" x="450" y="50" text-anchor="middle" dominant-baseline="central">Roles: host / guest / admin</text>
+
+    <rect x="550" y="10" width="200" height="55" rx="8" class="node-blue" stroke-width="0.8"/>
+    <text class="th label-blue" x="650" y="31" text-anchor="middle" dominant-baseline="central">GitHub Actions CI</text>
+    <text class="ts sub-blue" x="650" y="50" text-anchor="middle" dominant-baseline="central">Run tests on every push</text>
+  </svg>
+</div>
+
+<p class="meta">
+  Artefact: Workflow Diagrams &nbsp;·&nbsp;
+  Safe-Stay AI &nbsp;·&nbsp;
+  SWE6011 Agile Programming &nbsp;·&nbsp;
+  Numair Alsaleh (ID: 2529226) &nbsp;·&nbsp;
+  Generated: March 2026
+</p>
+
+</body>
+</html>
