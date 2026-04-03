@@ -222,6 +222,36 @@ Do NOT build:
 - Zephyr test cases mirror PHPUnit tests — one Zephyr test case per user story
 
 ---
+## Git Workflow
+
+- One commit per completed feature or subtask
+- Commit message format: "feat: description" for features, "test: description" for tests, "fix: description" for fixes
+- Always run php artisan test before committing
+- Push to main branch after every commit
+
+## Sprint Plan
+
+### Sprint 1 (1–14 April) — build in this order:
+1. Database migrations (properties, house_manuals, qa_logs, maintenance_issues)
+2. Authentication — register, login, logout, roles
+3. Property CRUD — create, edit, view all
+4. House manual upload and storage
+5. Host dashboard UI
+6. Guest portal UI
+
+### Sprint 2 (15–25 April) — build in this order:
+1. Groq API integration and ConciergeService
+2. Guest Q&A chat interface
+3. Maintenance issue reporting — guest side
+4. Host maintenance view — list, resolve, history
+5. Q&A log for host
+
+## Running Tests
+
+After every task run:
+php artisan test
+
+All tests must pass before committing.
 
 ## Deadline
 
