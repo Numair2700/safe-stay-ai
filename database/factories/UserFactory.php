@@ -43,4 +43,18 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function host(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'host',
+        ]);
+    }
+
+    public function guest(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'guest',
+        ]);
+    }
 }
