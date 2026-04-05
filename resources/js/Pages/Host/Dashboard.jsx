@@ -5,7 +5,9 @@ const PropertyCard = ({ property }) => (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
         <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
-                <h3 className="text-base font-semibold text-gray-900 truncate">{property.name}</h3>
+                <Link href={route('host.properties.show', property.id)}>
+                    <h3 className="text-base font-semibold text-gray-900 truncate hover:text-sage-600 transition-colors">{property.name}</h3>
+                </Link>
                 <p className="mt-1 text-sm text-warm-gray flex items-center gap-1.5">
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

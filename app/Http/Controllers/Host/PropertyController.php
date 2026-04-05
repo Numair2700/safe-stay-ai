@@ -36,6 +36,16 @@ class PropertyController extends Controller
             ->with('success', 'Property created successfully.');
     }
 
+    public function show(Property $property): Response
+    {
+        Gate::authorize('update', $property);
+
+        return Inertia::render('Host/Properties/Show', [
+            'property' => $property,
+            'manuals' => $property->houseManuals()->latest()->get(),
+        ]);
+    }
+
     public function edit(Property $property): Response
     {
         Gate::authorize('update', $property);

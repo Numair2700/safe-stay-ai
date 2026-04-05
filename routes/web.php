@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Host\ManualController;
 use App\Http\Controllers\Host\PropertyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -16,11 +17,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return redirect()->route('host.properties.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host.')->group(function () {
     Route::resource('properties', PropertyController::class);
+    Route::post('properties/{property}/manuals', [ManualController::class, 'store'])->name('properties.manuals.store');
+    Route::delete('properties/{property}/manuals/{manual}', [ManualController::class, 'destroy'])->name('properties.manuals.destroy');
 });
 
 Route::middleware('auth')->group(function () {
