@@ -26,3 +26,8 @@ Thumbs.db
 .agent/
 .claude/
 .TODO.md
+
+CLAUDE.md
+AGENTS.md
+.cursor/
+.cursor
