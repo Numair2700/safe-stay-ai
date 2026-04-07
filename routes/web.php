@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\PortalController;
 use App\Http\Controllers\Host\ManualController;
 use App\Http\Controllers\Host\PropertyController;
 use App\Http\Controllers\ProfileController;
@@ -19,6 +20,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return redirect()->route('host.properties.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Public guest portal — no auth required
+Route::get('/property/{property}/portal', [PortalController::class, 'show'])->name('guest.portal');
 
 Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host.')->group(function () {
     Route::resource('properties', PropertyController::class);
