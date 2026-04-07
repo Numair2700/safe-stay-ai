@@ -1,55 +1,90 @@
-import { Head, Link } from '@inertiajs/react';
+import { useState } from 'react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import HostLayout from '@/Layouts/HostLayout';
 
-const PropertyCard = ({ property }) => (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
-        <div className="flex items-start justify-between gap-4">
-            <div className="flex-1 min-w-0">
-                <Link href={route('host.properties.show', property.id)}>
-                    <h3 className="text-base font-semibold text-gray-900 truncate hover:text-sage-600 transition-colors">{property.name}</h3>
-                </Link>
-                <p className="mt-1 text-sm text-warm-gray flex items-center gap-1.5">
-                    <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span className="truncate">{property.address}</span>
-                </p>
+const PropertyCard = ({ property }) => {
+    const [copied, setCopied] = useState(false);
+    const guestPortalPath = route('guest.portal', property.id, false);
+    const guestPortalUrl = `${window.location.origin}${guestPortalPath}`;
+
+    const copyGuestLink = async () => {
+        await navigator.clipboard.writeText(guestPortalUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+            <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                    <Link href={route('host.properties.show', property.id)}>
+                        <h3 className="text-base font-semibold text-gray-900 truncate hover:text-sage-600 transition-colors">{property.name}</h3>
+                    </Link>
+                    <p className="mt-1 text-sm text-warm-gray flex items-center gap-1.5">
+                        <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span className="truncate">{property.address}</span>
+                    </p>
+                </div>
+                <span className="shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sage-100 text-sage-700">
+                    Active
+                </span>
             </div>
-            <span className="shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sage-100 text-sage-700">
-                Active
-            </span>
-        </div>
 
-        {property.description && (
-            <p className="text-sm text-gray-500 line-clamp-2">{property.description}</p>
-        )}
+            {property.description && (
+                <p className="text-sm text-gray-500 line-clamp-2">{property.description}</p>
+            )}
 
-        <div className="flex items-center gap-3 pt-2 border-t border-gray-50">
-            <Link
-                href={route('host.properties.edit', property.id)}
-                className="flex items-center gap-1.5 text-sm text-sage-600 hover:text-sage-700 font-medium transition-colors"
-            >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-                Edit
-            </Link>
-            <Link
-                href={route('host.properties.destroy', property.id)}
-                method="delete"
-                as="button"
-                onBefore={() => confirm('Are you sure you want to delete this property?')}
-                className="flex items-center gap-1.5 text-sm text-red-400 hover:text-red-600 font-medium transition-colors"
-            >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-                Delete
-            </Link>
+                <div className="rounded-lg bg-sage-50 border border-sage-100 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-sage-700">Guest portal link</p>
+                <p className="mt-1 text-xs text-sage-800 break-all">{guestPortalUrl}</p>
+                <div className="mt-2 flex items-center gap-3">
+                    <button
+                        type="button"
+                        onClick={copyGuestLink}
+                        className="text-xs font-medium text-sage-700 hover:text-sage-800 transition-colors"
+                    >
+                        {copied ? 'Copied!' : 'Copy link'}
+                    </button>
+                    <a
+                        href={guestPortalUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-medium text-sage-700 hover:text-sage-800 transition-colors"
+                    >
+                        Open portal
+                    </a>
+                </div>
+            </div>
+
+            <div className="flex items-center gap-3 pt-2 border-t border-gray-50">
+                <Link
+                    href={route('host.properties.edit', property.id)}
+                    className="flex items-center gap-1.5 text-sm text-sage-600 hover:text-sage-700 font-medium transition-colors"
+                >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    Edit
+                </Link>
+                <Link
+                    href={route('host.properties.destroy', property.id)}
+                    method="delete"
+                    as="button"
+                    onBefore={() => confirm('Are you sure you want to delete this property?')}
+                    className="flex items-center gap-1.5 text-sm text-red-400 hover:text-red-600 font-medium transition-colors"
+                >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Delete
+                </Link>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const EmptyState = () => (
     <div className="flex flex-col items-center justify-center py-20 text-center">
@@ -72,10 +107,29 @@ const EmptyState = () => (
     </div>
 );
 
+function getGreeting() {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+}
+
 export default function Dashboard({ properties }) {
+    const { auth } = usePage().props;
+    const firstName = auth.user.name.split(' ')[0];
+
     return (
         <HostLayout title="My Properties">
             <Head title="Host Dashboard" />
+
+            <div className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900">
+                    {getGreeting()}, {firstName} 👋
+                </h2>
+                <p className="mt-1 text-sm text-warm-gray">
+                    Here's an overview of your properties.
+                </p>
+            </div>
 
             <div className="flex items-center justify-between mb-6">
                 <div>
