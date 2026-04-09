@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\ConciergeController;
 use App\Http\Controllers\Guest\PortalController;
 use App\Http\Controllers\Host\ManualController;
 use App\Http\Controllers\Host\PropertyController;
@@ -23,6 +24,7 @@ Route::get('/dashboard', function () {
 
 // Public guest portal — no auth required
 Route::get('/property/{property}/portal', [PortalController::class, 'show'])->name('guest.portal');
+Route::post('/property/{property}/concierge', [ConciergeController::class, 'ask'])->name('guest.concierge.ask');
 
 Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host.')->group(function () {
     Route::resource('properties', PropertyController::class);
