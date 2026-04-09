@@ -6,6 +6,7 @@ use App\Models\HouseManual;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
@@ -168,5 +169,53 @@ class ConciergeControllerTest extends TestCase
             'property_id' => $property->id,
             'question' => 'Can I smoke?',
         ]);
+    }
+
+    public function test_concierge_retries_with_fallback_model_when_configured_model_is_unavailable(): void
+    {
+        $property = Property::factory()->create();
+        HouseManual::factory()->create([
+            'property_id' => $property->id,
+            'content' => 'WiFi password is 12345.',
+        ]);
+
+        config()->set('services.groq.model', 'mixtral-8x7b-32768');
+
+        Http::fake(function (Request $request) {
+            $model = data_get($request->data(), 'model');
+
+            if ($model === 'mixtral-8x7b-32768') {
+                return Http::response([
+                    'error' => [
+                        'message' => 'The model `mixtral-8x7b-32768` does not exist.',
+                    ],
+                ], 404);
+            }
+
+            if ($model === 'llama-3.3-70b-versatile') {
+                return Http::response([
+                    'choices' => [
+                        [
+                            'message' => [
+                                'content' => 'The WiFi password is 12345.',
+                            ],
+                        ],
+                    ],
+                ]);
+            }
+
+            return Http::response([], 500);
+        });
+
+        $response = $this->post(route('guest.concierge.ask', $property), [
+            'question' => 'What is the WiFi password?',
+        ]);
+
+        $response->assertOk();
+        $response->assertJson([
+            'answer' => 'The WiFi password is 12345.',
+        ]);
+
+        Http::assertSentCount(2);
     }
 }

@@ -95,4 +95,14 @@ class PortalControllerTest extends TestCase
         $response->assertOk();
         $response->assertInertia(fn ($page) => $page->component('Guest/Portal'));
     }
+
+    public function test_portal_page_includes_csrf_meta_token_for_chat_post_requests(): void
+    {
+        $property = Property::factory()->create();
+
+        $response = $this->get(route('guest.portal', $property));
+
+        $response->assertOk();
+        $response->assertSee('meta name="csrf-token"', false);
+    }
 }
