@@ -1,4 +1,5 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
+import { useState, useRef, useEffect } from 'react';
 
 const SectionCard = ({ icon, title, subtitle, children }) => (
     <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
@@ -25,7 +26,50 @@ const ComingSoonBadge = () => (
 );
 
 export default function Portal({ property, manuals }) {
+    const { url } = usePage();
     const hasManual = manuals.length > 0;
+
+    const [messages, setMessages] = useState([
+        { role: 'ai', text: 'Hello! Ask me anything about your stay.' }
+    ]);
+    const [input, setInput] = useState('');
+    const [loading, setLoading] = useState(false);
+    const messagesEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    useEffect(scrollToBottom, [messages]);
+
+    const sendQuestion = async (e) => {
+        e.preventDefault();
+        if (!input.trim() || loading) return;
+
+        const question = input.trim();
+        setMessages(prev => [...prev, { role: 'user', text: question }]);
+        setInput('');
+        setLoading(true);
+
+        try {
+            const response = await fetch(url.replace('/portal', '/concierge'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '',
+                },
+                body: JSON.stringify({ question }),
+            });
+
+            if (!response.ok) throw new Error('API error');
+            const data = await response.json();
+            setMessages(prev => [...prev, { role: 'ai', text: data.answer }]);
+        } catch {
+            setMessages(prev => [...prev, { role: 'ai', text: "I'm sorry, something went wrong. Please try again." }]);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <>
@@ -69,7 +113,7 @@ export default function Portal({ property, manuals }) {
                         )}
                     </div>
 
-                    {/* AI Concierge — placeholder for Batch 7 */}
+                    {/* AI Concierge — Live Chat UI */}
                     <SectionCard
                         icon={
                             <svg className="w-5 h-5 text-sage-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -80,20 +124,55 @@ export default function Portal({ property, manuals }) {
                         subtitle="Ask anything about your stay"
                     >
                         {hasManual ? (
-                            <div className="flex flex-col items-center justify-center py-8 text-center gap-3">
-                                <div className="flex items-center justify-center w-14 h-14 bg-sage-50 rounded-2xl">
-                                    <svg className="w-7 h-7 text-sage-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                                    </svg>
+                            <div className="flex flex-col gap-4">
+                                {/* Messages container */}
+                                <div className="bg-gray-50 rounded-lg p-4 h-72 overflow-y-auto flex flex-col gap-3">
+                                    {messages.map((msg, idx) => (
+                                        <div
+                                            key={idx}
+                                            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                        >
+                                            <div
+                                                className={`max-w-xs px-4 py-2 rounded-xl text-sm ${
+                                                    msg.role === 'user'
+                                                        ? 'bg-sage-500 text-white rounded-br-none'
+                                                        : 'bg-white text-gray-800 border border-gray-200 rounded-bl-none'
+                                                }`}
+                                            >
+                                                {msg.text}
+                                            </div>
+                                        </div>
+                                    ))}
+                                    {loading && (
+                                        <div className="flex justify-start">
+                                            <div className="bg-white text-gray-800 px-4 py-2 rounded-xl border border-gray-200 rounded-bl-none flex gap-1">
+                                                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
+                                                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                                                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+                                            </div>
+                                        </div>
+                                    )}
+                                    <div ref={messagesEndRef} />
                                 </div>
-                                <div>
-                                    <p className="text-sm font-medium text-gray-800">AI chat is on its way</p>
-                                    <p className="text-xs text-warm-gray mt-0.5">
-                                        Your host has uploaded {manuals.length} manual{manuals.length > 1 ? 's' : ''}.
-                                        The AI concierge will answer your questions shortly.
-                                    </p>
-                                </div>
-                                <ComingSoonBadge />
+
+                                {/* Input form */}
+                                <form onSubmit={sendQuestion} className="flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={input}
+                                        onChange={(e) => setInput(e.target.value)}
+                                        placeholder="Ask a question..."
+                                        disabled={loading}
+                                        className="flex-1 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 disabled:bg-gray-50"
+                                    />
+                                    <button
+                                        type="submit"
+                                        disabled={loading || !input.trim()}
+                                        className="bg-sage-500 hover:bg-sage-600 disabled:bg-gray-300 text-white px-4 py-2 rounded-xl text-sm font-medium transition"
+                                    >
+                                        Send
+                                    </button>
+                                </form>
                             </div>
                         ) : (
                             <div className="flex flex-col items-center justify-center py-8 text-center gap-2">
