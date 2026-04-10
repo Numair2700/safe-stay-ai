@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Guest\ConciergeController;
 use App\Http\Controllers\Guest\PortalController;
 use App\Http\Controllers\Host\ManualController;
@@ -30,6 +31,11 @@ Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host
     Route::resource('properties', PropertyController::class);
     Route::post('properties/{property}/manuals', [ManualController::class, 'store'])->name('properties.manuals.store');
     Route::delete('properties/{property}/manuals/{manual}', [ManualController::class, 'destroy'])->name('properties.manuals.destroy');
+});
+
+Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('users', [AdminUserController::class, 'index'])->name('users.index');
+    Route::patch('users/{user}', [AdminUserController::class, 'update'])->name('users.update');
 });
 
 Route::middleware('auth')->group(function () {
