@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Guest\ConciergeController;
 use App\Http\Controllers\Guest\MaintenanceController;
 use App\Http\Controllers\Guest\PortalController;
+use App\Http\Controllers\Host\MaintenanceController as HostMaintenanceController;
 use App\Http\Controllers\Host\ManualController;
 use App\Http\Controllers\Host\PropertyController;
 use App\Http\Controllers\ProfileController;
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host
     Route::resource('properties', PropertyController::class);
     Route::post('properties/{property}/manuals', [ManualController::class, 'store'])->name('properties.manuals.store');
     Route::delete('properties/{property}/manuals/{manual}', [ManualController::class, 'destroy'])->name('properties.manuals.destroy');
+    Route::get('properties/{property}/maintenance', [HostMaintenanceController::class, 'index'])->name('properties.maintenance.index');
+    Route::patch('properties/{property}/maintenance/{issue}/resolve', [HostMaintenanceController::class, 'resolve'])->name('properties.maintenance.resolve');
 });
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
