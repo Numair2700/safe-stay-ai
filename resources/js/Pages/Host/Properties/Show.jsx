@@ -119,6 +119,38 @@ export default function Show({ property, manuals }) {
                     )}
                 </div>
 
+                {/* Quick links */}
+                <div className="grid grid-cols-2 gap-3">
+                    <Link
+                        href={route('host.properties.maintenance.index', property.id)}
+                        className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-sage-200 hover:shadow-md transition-all group"
+                    >
+                        <div className="flex items-center justify-center w-9 h-9 bg-amber-50 rounded-lg shrink-0">
+                            <svg className="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p className="text-sm font-medium text-gray-800 group-hover:text-sage-700">Maintenance Reports</p>
+                            <p className="text-xs text-warm-gray">View & resolve issues</p>
+                        </div>
+                    </Link>
+                    <Link
+                        href={route('guest.portal', property.id)}
+                        className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-sage-200 hover:shadow-md transition-all group"
+                    >
+                        <div className="flex items-center justify-center w-9 h-9 bg-sage-50 rounded-lg shrink-0">
+                            <svg className="w-5 h-5 text-sage-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p className="text-sm font-medium text-gray-800 group-hover:text-sage-700">Guest Portal</p>
+                            <p className="text-xs text-warm-gray">Preview guest view</p>
+                        </div>
+                    </Link>
+                </div>
+
                 {/* House Manuals card */}
                 <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col gap-5">
                     <div>

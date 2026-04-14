@@ -34,6 +34,7 @@ Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host
     Route::resource('properties', PropertyController::class);
     Route::post('properties/{property}/manuals', [ManualController::class, 'store'])->name('properties.manuals.store');
     Route::delete('properties/{property}/manuals/{manual}', [ManualController::class, 'destroy'])->name('properties.manuals.destroy');
+    Route::get('maintenance', [HostMaintenanceController::class, 'overview'])->name('maintenance.overview');
     Route::get('properties/{property}/maintenance', [HostMaintenanceController::class, 'index'])->name('properties.maintenance.index');
     Route::patch('properties/{property}/maintenance/{issue}/resolve', [HostMaintenanceController::class, 'resolve'])->name('properties.maintenance.resolve');
 });
