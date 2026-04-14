@@ -18,12 +18,6 @@ const SectionCard = ({ icon, title, subtitle, children }) => (
     </div>
 );
 
-const ComingSoonBadge = () => (
-    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-sage-50 text-sage-600 text-xs font-medium rounded-full border border-sage-200">
-        <span className="w-1.5 h-1.5 bg-sage-400 rounded-full animate-pulse"></span>
-        Coming soon
-    </span>
-);
 
 export default function Portal({ property, manuals }) {
     const { url } = usePage();
@@ -35,6 +29,11 @@ export default function Portal({ property, manuals }) {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
     const messagesEndRef = useRef(null);
+
+    const [maintenanceDesc, setMaintenanceDesc] = useState('');
+    const [maintenanceLoading, setMaintenanceLoading] = useState(false);
+    const [maintenanceSuccess, setMaintenanceSuccess] = useState(false);
+    const [maintenanceError, setMaintenanceError] = useState('');
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -182,7 +181,7 @@ export default function Portal({ property, manuals }) {
                         )}
                     </SectionCard>
 
-                    {/* Maintenance Report — placeholder for Batch 9 */}
+                    {/* Maintenance Report */}
                     <SectionCard
                         icon={
                             <svg className="w-5 h-5 text-sage-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -192,20 +191,71 @@ export default function Portal({ property, manuals }) {
                         title="Report a Maintenance Issue"
                         subtitle="Let your host know what needs attention"
                     >
-                        <div className="flex flex-col items-center justify-center py-8 text-center gap-3">
-                            <div className="flex items-center justify-center w-14 h-14 bg-sage-50 rounded-2xl">
-                                <svg className="w-7 h-7 text-sage-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                </svg>
+                        {maintenanceSuccess ? (
+                            <div className="flex flex-col items-center justify-center py-8 text-center gap-3">
+                                <div className="flex items-center justify-center w-14 h-14 bg-sage-50 rounded-2xl">
+                                    <svg className="w-7 h-7 text-sage-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="text-sm font-medium text-gray-800">Issue reported successfully</p>
+                                    <p className="text-xs text-warm-gray mt-0.5">Your host has been notified.</p>
+                                </div>
+                                <button
+                                    onClick={() => { setMaintenanceSuccess(false); setMaintenanceDesc(''); }}
+                                    className="text-xs text-sage-600 hover:underline"
+                                >
+                                    Report another issue
+                                </button>
                             </div>
-                            <div>
-                                <p className="text-sm font-medium text-gray-800">Maintenance reporting coming soon</p>
-                                <p className="text-xs text-warm-gray mt-0.5">
-                                    You'll be able to report issues directly from this page.
-                                </p>
-                            </div>
-                            <ComingSoonBadge />
-                        </div>
+                        ) : (
+                            <form
+                                onSubmit={async (e) => {
+                                    e.preventDefault();
+                                    if (!maintenanceDesc.trim() || maintenanceLoading) return;
+                                    setMaintenanceLoading(true);
+                                    setMaintenanceError('');
+                                    try {
+                                        const res = await fetch(url.replace('/portal', '/maintenance'), {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '',
+                                            },
+                                            body: JSON.stringify({ description: maintenanceDesc }),
+                                        });
+                                        if (!res.ok) throw new Error('Failed');
+                                        setMaintenanceSuccess(true);
+                                    } catch {
+                                        setMaintenanceError('Something went wrong. Please try again.');
+                                    } finally {
+                                        setMaintenanceLoading(false);
+                                    }
+                                }}
+                                className="flex flex-col gap-3"
+                            >
+                                <textarea
+                                    value={maintenanceDesc}
+                                    onChange={(e) => setMaintenanceDesc(e.target.value)}
+                                    placeholder="Describe the issue (e.g. the kitchen tap is leaking)..."
+                                    rows={4}
+                                    maxLength={1000}
+                                    disabled={maintenanceLoading}
+                                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 resize-none disabled:bg-gray-50"
+                                />
+                                {maintenanceError && (
+                                    <p className="text-xs text-red-500">{maintenanceError}</p>
+                                )}
+                                <button
+                                    type="submit"
+                                    disabled={maintenanceLoading || !maintenanceDesc.trim()}
+                                    className="self-end bg-sage-500 hover:bg-sage-600 disabled:bg-gray-300 text-white px-5 py-2 rounded-xl text-sm font-medium transition"
+                                >
+                                    {maintenanceLoading ? 'Submitting...' : 'Submit Report'}
+                                </button>
+                            </form>
+                        )}
                     </SectionCard>
 
                 </main>
