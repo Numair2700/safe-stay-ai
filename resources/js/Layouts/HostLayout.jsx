@@ -51,8 +51,8 @@ export default function HostLayout({ title, children }) {
                 </NavItem>
 
                 <NavItem
-                    href={route('host.properties.index')}
-                    active={route().current('host.properties.qa-logs.*')}
+                    href={route('host.qa-logs.overview')}
+                    active={route().current('host.qa-logs.*') || route().current('host.properties.qa-logs.*')}
                     title="Q&A Logs"
                 >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
