@@ -136,12 +136,26 @@ export default function Show({ property, manuals }) {
                         </div>
                     </Link>
                     <Link
-                        href={route('guest.portal', property.id)}
+                        href={route('host.properties.qa-logs.index', property.id)}
                         className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-sage-200 hover:shadow-md transition-all group"
                     >
                         <div className="flex items-center justify-center w-9 h-9 bg-sage-50 rounded-lg shrink-0">
                             <svg className="w-5 h-5 text-sage-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p className="text-sm font-medium text-gray-800 group-hover:text-sage-700">Q&A Log</p>
+                            <p className="text-xs text-warm-gray">Guest questions & answers</p>
+                        </div>
+                    </Link>
+                    <Link
+                        href={route('guest.portal', property.id)}
+                        className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-sage-200 hover:shadow-md transition-all group"
+                    >
+                        <div className="flex items-center justify-center w-9 h-9 bg-blue-50 rounded-lg shrink-0">
+                            <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                         </div>
                         <div>

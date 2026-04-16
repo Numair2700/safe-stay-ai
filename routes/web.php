@@ -7,6 +7,7 @@ use App\Http\Controllers\Guest\PortalController;
 use App\Http\Controllers\Host\MaintenanceController as HostMaintenanceController;
 use App\Http\Controllers\Host\ManualController;
 use App\Http\Controllers\Host\PropertyController;
+use App\Http\Controllers\Host\QaLogController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::middleware(['auth', 'verified', 'role:host'])->prefix('host')->name('host
     Route::post('properties/{property}/manuals', [ManualController::class, 'store'])->name('properties.manuals.store');
     Route::delete('properties/{property}/manuals/{manual}', [ManualController::class, 'destroy'])->name('properties.manuals.destroy');
     Route::get('maintenance', [HostMaintenanceController::class, 'overview'])->name('maintenance.overview');
+    Route::get('properties/{property}/qa-logs', [QaLogController::class, 'index'])->name('properties.qa-logs.index');
     Route::get('properties/{property}/maintenance', [HostMaintenanceController::class, 'index'])->name('properties.maintenance.index');
     Route::patch('properties/{property}/maintenance/{issue}/resolve', [HostMaintenanceController::class, 'resolve'])->name('properties.maintenance.resolve');
 });
