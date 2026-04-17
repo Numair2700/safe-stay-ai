@@ -18,7 +18,7 @@ class QaLogController extends Controller
 
         return Inertia::render('Host/QaLogs/Overview', [
             'properties' => $properties,
-            'totalCount' => $properties->sum(fn ($p) => $p->qa_logs->count()),
+            'totalCount' => $properties->sum(fn ($p) => $p->qaLogs->count()),
         ]);
     }
 
