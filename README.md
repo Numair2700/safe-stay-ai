@@ -11,11 +11,11 @@
 Safe-Stay AI is a multi-tenant Property Management SaaS that automates guest support and property maintenance through an AI-powered Digital Concierge. Hosts upload their property house manuals; guests ask questions and receive instant, property-specific AI responses. Maintenance issues are logged and tracked through the platform.
 
 **Tech Stack:**
-- Backend: Laravel 11 (PHP)
-- Frontend: React + Inertia.js
+- Backend: Laravel 13 (PHP 8.4)
+- Frontend: React 19 + Inertia.js v3
 - Database: MySQL
-- AI: OpenAI API (GPT)
-- Testing: PHPUnit (TDD) + Zephyr (Jira)
+- AI: Groq API (LLaMA)
+- Testing: PHPUnit v12 (TDD) + Zephyr (Jira)
 - CI: GitHub Actions
 - Project Management: Jira (Scrum)
 - Version Control: GitHub
@@ -30,8 +30,8 @@ This project follows the **Scrum** framework with **Test-Driven Development (TDD
 
 | Sprint | Dates | Goal | Key Deliverables |
 |--------|-------|------|-----------------|
-| Sprint 1 | 1 Apr – 14 Apr 2026 | Foundation & Core Auth | Auth, Property Setup, House Manual Upload |
-| Sprint 2 | 15 Apr – 25 Apr 2026 | AI Concierge & Testing | Guest Q&A, Maintenance Reporting, Zephyr Tests, Risk Review |
+| Sprint 1 | 1 Apr – 14 Apr 2026 | Foundation & Core Auth | Auth, Role Middleware, Property CRUD, House Manual Upload, Guest Portal |
+| Sprint 2 | 15 Apr – 21 Apr 2026 | AI Concierge & Maintenance | Groq AI Concierge, Guest Q&A Chat UI, Maintenance Reporting, Host Maintenance & Q&A Views, Admin Role Management |
 
 ---
 
@@ -41,9 +41,10 @@ This project follows the **Scrum** framework with **Test-Driven Development (TDD
 - User authentication (Host, Guest, Admin roles)
 - Property creation and management
 - House manual upload and storage
-- AI-powered guest Q&A (Digital Concierge)
+- AI-powered guest Q&A (Digital Concierge via Groq)
 - Maintenance issue reporting and tracking
-- Host dashboard
+- Host dashboard with maintenance and Q&A log views
+- Admin user role management
 
 **Out of Scope:**
 - Payment processing
@@ -58,79 +59,94 @@ This project follows the **Scrum** framework with **Test-Driven Development (TDD
 
 ```
 safe-stay-ai/
-├── app/                    # Laravel application logic
+├── app/
 │   ├── Http/Controllers/
+│   │   ├── Admin/          # Admin user management
+│   │   ├── Guest/          # Guest portal, concierge, maintenance
+│   │   └── Host/           # Host property, manual, maintenance, Q&A
 │   ├── Models/
-│   └── Services/           # AI Concierge service
+│   └── Services/           # ConciergeService, PropertyService, ManualService, UserService
 ├── database/
 │   ├── migrations/
-│   └── seeders/
+│   └── factories/
 ├── resources/
-│   ├── js/                 # React components (Inertia)
-│   └── views/
+│   └── js/
+│       ├── Layouts/        # HostLayout
+│       └── Pages/
+│           ├── Admin/      # Admin user management UI
+│           ├── Guest/      # Guest portal
+│           └── Host/       # Host dashboard, properties, maintenance, Q&A logs
 ├── tests/
-│   ├── Unit/               # TDD unit tests
-│   └── Feature/            # Feature/acceptance tests
+│   ├── Unit/
+│   └── Feature/
+│       ├── Admin/
+│       ├── Guest/
+│       └── Host/
 ├── artefacts/              # All Assignment 2 artefacts
-│   ├── workflow-diagrams/
 │   ├── backlog/
+│   ├── burndown-charts/
+│   ├── dev-progress/
 │   ├── sprint-screenshots/
-│   ├── risk-log/
-│   ├── ui-mockups/
-│   ├── er-diagram/
 │   └── zephyr-tests/
-├── .github/
-│   └── workflows/          # CI/CD (GitHub Actions)
-├── .env.example
-├── composer.json
-└── README.md
+└── .github/
+    └── workflows/          # CI/CD (GitHub Actions)
 ```
 
 ---
 
-## Artefacts Index (Assignment 2 Evidence)
+## Artefacts Index
 
-All artefacts are stored in the `/artefacts` folder and referenced in the project report.
+All artefacts are stored in the `/artefacts` folder.
 
 | Artefact | Location | Status |
 |----------|----------|--------|
-| Vision Statement | Report Section 2 | ✅ Done |
-| Agile Justification | Report Section 1 | ✅ Done |
-| Workflow Diagram (Host) | artefacts/workflow-diagrams/ | 🔄 In Progress |
-| Workflow Diagram (Guest) | artefacts/workflow-diagrams/ | 🔄 In Progress |
-| Product Backlog (Excel) | artefacts/backlog/ | ⬜ Pending |
-| Jira Backlog Screenshot | artefacts/sprint-screenshots/ | ⬜ Pending |
-| Sprint 1 Plan Screenshot | artefacts/sprint-screenshots/ | ⬜ Pending |
-| Sprint 2 Plan Screenshot | artefacts/sprint-screenshots/ | ⬜ Pending |
-| ER Diagram | artefacts/er-diagram/ | ⬜ Pending |
-| UI Mockups | artefacts/ui-mockups/ | ⬜ Pending |
-| Risk Log (RMMM) | artefacts/risk-log/ | ⬜ Pending |
-| Sprint 1 Review Notes | artefacts/sprint-screenshots/ | ⬜ Pending |
-| Sprint 1 Retrospective | artefacts/sprint-screenshots/ | ⬜ Pending |
-| Zephyr Test Screenshots | artefacts/zephyr-tests/ | ⬜ Pending |
-| Burndown Chart | artefacts/sprint-screenshots/ | ⬜ Pending |
-| Working App Screenshots | artefacts/sprint-screenshots/ | ⬜ Pending |
+| Product Backlog (Excel) | artefacts/backlog/ | ✅ Done |
+| Risk Log (after Sprint 1 & 2) | artefacts/backlog/ | ✅ Done |
+| Burndown Charts (Sprint 1 & 2) | artefacts/burndown-charts/ | ✅ Done |
+| Sprint 1 Screenshots | artefacts/sprint-screenshots/Sprint1/ | ✅ Done |
+| Sprint 2 Screenshots | artefacts/sprint-screenshots/Sprint2/ | ✅ Done |
+| UI Screenshots (Batches 8–10) | artefacts/dev-progress/UI/ | ✅ Done |
+| Test Results Screenshots | artefacts/dev-progress/tests/ | ✅ Done |
+| CI/GitHub Actions Screenshots | artefacts/dev-progress/github/ | ✅ Done |
+| Zephyr Cycle 1 Evidence | artefacts/zephyr-tests/cycle1/ | ✅ Done |
+| Zephyr Cycle 2 Evidence | artefacts/zephyr-tests/cycle2/ | ✅ Done |
 
 ---
 
-## Key Risks
+## Test Coverage
 
-| Risk | Probability | Impact | Mitigation |
-|------|------------|--------|------------|
-| AI hallucinations (OpenAI returns inaccurate property responses) | Medium | High | Prompt engineering, response validation, fallback messages |
-| Time constraint (25-day delivery window) | High | High | Strict MVP scope, 2-sprint plan, daily progress tracking |
-| OpenAI API rate limits or costs | Low | Medium | Cache frequent responses, mock API in tests |
-| Laravel/React integration issues | Low | Medium | TDD catches early, CI runs on every push |
+The full test suite covers all implemented features across both sprints.
+
+```bash
+# Run all tests
+php artisan test --compact
+
+# Run a specific test file
+php artisan test --compact tests/Feature/Host/PropertyControllerTest.php
+```
+
+| Area | Tests |
+|------|-------|
+| Auth & Registration | ✅ |
+| Role Middleware | ✅ |
+| Property CRUD | ✅ |
+| House Manual Upload | ✅ |
+| Guest Portal | ✅ |
+| AI Concierge (Groq) | ✅ |
+| Guest Maintenance Submission | ✅ |
+| Host Maintenance View & Resolve | ✅ |
+| Host Q&A Log View | ✅ |
+| Admin User Management | ✅ |
+
+Test cases are also documented in **Zephyr (Jira)** with step-by-step execution records for both sprints.
 
 ---
 
 ## How to Run Locally
 
-> Setup instructions will be added during Sprint 1.
-
 ```bash
 # Clone repository
-git clone https://github.com/[your-username]/safe-stay-ai.git
+git clone https://github.com/Numair2700/safe-stay-ai.git
 cd safe-stay-ai
 
 # Install dependencies
@@ -142,26 +158,25 @@ cp .env.example .env
 php artisan key:generate
 
 # Database
-php artisan migrate --seed
+php artisan migrate
+
+# Build frontend assets
+npm run build
 
 # Start development server
 php artisan serve
-npm run dev
 ```
 
 ---
 
-## Testing
+## Key Risks
 
-```bash
-# Run all tests
-php artisan test
-
-# Run with coverage
-php artisan test --coverage
-```
-
-Test cases are also documented in **Zephyr (Jira)** with step-by-step execution records per sprint.
+| Risk | Probability | Impact | Mitigation |
+|------|------------|--------|------------|
+| AI hallucinations (Groq returns inaccurate responses) | Medium | High | Prompt engineering with manual context, fallback messages |
+| Time constraint (25-day delivery window) | High | High | Strict MVP scope, 2-sprint plan, daily progress tracking |
+| Groq API rate limits | Low | Medium | Mock API in tests via Http::fake() |
+| Laravel/React integration issues | Low | Medium | TDD catches early, CI runs on every push |
 
 ---
 
@@ -169,9 +184,9 @@ Test cases are also documented in **Zephyr (Jira)** with step-by-step execution 
 
 - **Module:** SWE6011 Agile Programming
 - **Tutor:** Renuka Nyayadhish
-- **Framework Used:** Scrum
+- **Framework:** Scrum
 - **Jira Project:** Safe-Stay AI (Scrum board)
-- **GitHub Repo:** [To be linked]
+- **GitHub Repo:** https://github.com/Numair2700/safe-stay-ai
 
 ---
 
@@ -180,10 +195,10 @@ Test cases are also documented in **Zephyr (Jira)** with step-by-step execution 
 In accordance with the module's Category B AI policy, Generative AI tools were used to assist with:
 - Generating initial project ideas
 - Exploring risk management strategies
-- Evaluating hardware/software requirements
+- Code scaffolding and debugging assistance
 
 All final content, code, and analysis represent the student's own work and understanding, verified during the demo/viva session.
 
 ---
 
-*Last updated: 31 March 2026*
+*Last updated: 21 April 2026*
