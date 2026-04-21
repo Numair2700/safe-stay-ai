@@ -104,6 +104,9 @@ All artefacts are stored in the `/artefacts` folder.
 | Product Backlog (Excel) | artefacts/backlog/ | ✅ Done |
 | Risk Log (after Sprint 1 & 2) | artefacts/backlog/ | ✅ Done |
 | Burndown Charts (Sprint 1 & 2) | artefacts/burndown-charts/ | ✅ Done |
+| ER Diagram | artefacts/er-diagram/ | ✅ Done |
+| UI Mockups | artefacts/ui-mockups/ | ✅ Done |
+| Workflow Diagrams | artefacts/workflow-diagrams/ | ✅ Done |
 | Sprint 1 Screenshots | artefacts/sprint-screenshots/Sprint1/ | ✅ Done |
 | Sprint 2 Screenshots | artefacts/sprint-screenshots/Sprint2/ | ✅ Done |
 | UI Screenshots (Batches 8–10) | artefacts/dev-progress/UI/ | ✅ Done |
@@ -172,13 +175,13 @@ php artisan serve
 
 ## Key Risks
 
-| # | Risk Description | Type | Probability | Impact | Priority | Mitigation Strategy |
-|---|-----------------|------|------------|--------|----------|---------------------|
-| R1 | AI hallucinations — model returns inaccurate property-specific answers | Technical | Low | High | Critical | Prompt engineering to constrain responses to manual content only; fallback message if answer not found; tested every sprint |
-| R2 | Time constraint — 25-day delivery window with no prior code written | Schedule | Low | High | Critical | Strict MVP scope; 2-sprint plan; daily progress tracking; no scope creep permitted |
-| R3 | OpenAI API cost or rate limits during development | Technical | Very Low | Medium | Medium | Use Groq free tier during development; mock API responses in PHPUnit tests; switch to real API for demo only |
-| R4 | Laravel/React/Inertia integration issues causing delays | Technical | Very Low | Medium | Medium | TDD catches integration errors early; GitHub Actions CI runs full test suite on every commit |
-| R5 | Loss of artefact evidence (screenshots, Jira data) | Project | Very Low | High | High | All screenshots committed to GitHub artefacts folder immediately after capture; never rely on Jira alone |
+| # | Risk Description | Probability | Impact | Mitigation |
+|---|-----------------|------------|--------|------------|
+| R1 | AI hallucinations — model returns inaccurate property-specific answers | Low | High | Prompt engineering to constrain responses to manual content only; fallback message if answer not found; tested every sprint |
+| R2 | Time constraint — 25-day delivery window with no prior code written | Low | High | Strict MVP scope; 2-sprint plan; daily progress tracking; no scope creep permitted |
+| R3 | OpenAI API cost or rate limits during development | Very Low | Medium | Use Groq free tier during development; mock API responses in PHPUnit tests; switch to real API for demo only |
+| R4 | Laravel/React/Inertia integration issues causing delays | Very Low | Medium | TDD catches integration errors early; GitHub Actions CI runs full test suite on every commit |
+| R5 | Loss of artefact evidence (screenshots, Jira data) | Very Low | High | All screenshots committed to GitHub artefacts folder immediately after capture; never rely on Jira alone |
 
 ---
 
