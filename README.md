@@ -14,7 +14,7 @@ Safe-Stay AI is a multi-tenant Property Management SaaS that automates guest sup
 - Backend: Laravel 13 (PHP 8.4)
 - Frontend: React 19 + Inertia.js v3
 - Database: MySQL
-- AI: Groq API (LLaMA)
+- AI: Groq API (mixtral-8x7b-32768)
 - Testing: PHPUnit v12 (TDD) + Zephyr (Jira)
 - CI: GitHub Actions
 - Project Management: Jira (Scrum)
@@ -31,7 +31,7 @@ This project follows the **Scrum** framework with **Test-Driven Development (TDD
 | Sprint | Dates | Goal | Key Deliverables |
 |--------|-------|------|-----------------|
 | Sprint 1 | 1 Apr – 14 Apr 2026 | Foundation & Core Auth | Auth, Role Middleware, Property CRUD, House Manual Upload, Guest Portal |
-| Sprint 2 | 15 Apr – 21 Apr 2026 | AI Concierge & Maintenance | Groq AI Concierge, Guest Q&A Chat UI, Maintenance Reporting, Host Maintenance & Q&A Views, Admin Role Management |
+| Sprint 2 | 15 Apr – 20 Apr 2026 | AI Concierge & Maintenance | Groq AI Concierge, Guest Q&A Chat UI, Maintenance Reporting, Host Maintenance & Q&A Views, Admin Role Management |
 
 ---
 
@@ -174,7 +174,7 @@ php artisan serve
 | Risk | Probability | Impact | Mitigation |
 |------|------------|--------|------------|
 | AI hallucinations (Groq returns inaccurate responses) | Medium | High | Prompt engineering with manual context, fallback messages |
-| Time constraint (25-day delivery window) | High | High | Strict MVP scope, 2-sprint plan, daily progress tracking |
+| Time constraint (25-day delivery window) | Low | High | Strict MVP scope, 2-sprint plan, daily progress tracking |
 | Groq API rate limits | Low | Medium | Mock API in tests via Http::fake() |
 | Laravel/React integration issues | Low | Medium | TDD catches early, CI runs on every push |
 
