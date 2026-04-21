@@ -31,7 +31,7 @@ This project follows the **Scrum** framework with **Test-Driven Development (TDD
 | Sprint | Dates | Goal | Key Deliverables |
 |--------|-------|------|-----------------|
 | Sprint 1 | 1 Apr – 14 Apr 2026 | Foundation & Core Auth | Auth, Role Middleware, Property CRUD, House Manual Upload, Guest Portal |
-| Sprint 2 | 15 Apr – 20 Apr 2026 | AI Concierge & Maintenance | Groq AI Concierge, Guest Q&A Chat UI, Maintenance Reporting, Host Maintenance & Q&A Views, Admin Role Management |
+| Sprint 2 | 15 Apr – 25 Apr 2026 | AI Concierge & Maintenance | Groq AI Concierge, Guest Q&A Chat UI, Maintenance Reporting, Host Maintenance & Q&A Views, Admin Role Management |
 
 ---
 
@@ -52,6 +52,7 @@ This project follows the **Scrum** framework with **Test-Driven Development (TDD
 - Mobile application
 - Multi-language support
 - Third-party reservation platform integrations
+- Admin UI (admin role management is backend/API only)
 
 ---
 
@@ -171,12 +172,13 @@ php artisan serve
 
 ## Key Risks
 
-| Risk | Probability | Impact | Mitigation |
-|------|------------|--------|------------|
-| AI hallucinations (Groq returns inaccurate responses) | Medium | High | Prompt engineering with manual context, fallback messages |
-| Time constraint (25-day delivery window) | Low | High | Strict MVP scope, 2-sprint plan, daily progress tracking |
-| Groq API rate limits | Low | Medium | Mock API in tests via Http::fake() |
-| Laravel/React integration issues | Low | Medium | TDD catches early, CI runs on every push |
+| # | Risk Description | Type | Probability | Impact | Priority | Mitigation Strategy |
+|---|-----------------|------|------------|--------|----------|---------------------|
+| R1 | AI hallucinations — model returns inaccurate property-specific answers | Technical | Low | High | Critical | Prompt engineering to constrain responses to manual content only; fallback message if answer not found; tested every sprint |
+| R2 | Time constraint — 25-day delivery window with no prior code written | Schedule | Low | High | Critical | Strict MVP scope; 2-sprint plan; daily progress tracking; no scope creep permitted |
+| R3 | OpenAI API cost or rate limits during development | Technical | Very Low | Medium | Medium | Use Groq free tier during development; mock API responses in PHPUnit tests; switch to real API for demo only |
+| R4 | Laravel/React/Inertia integration issues causing delays | Technical | Very Low | Medium | Medium | TDD catches integration errors early; GitHub Actions CI runs full test suite on every commit |
+| R5 | Loss of artefact evidence (screenshots, Jira data) | Project | Very Low | High | High | All screenshots committed to GitHub artefacts folder immediately after capture; never rely on Jira alone |
 
 ---
 
