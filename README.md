@@ -91,37 +91,42 @@ safe-stay-ai/
 │       ├── Guest/
 │       └── Host/
 ├── FINAL_SUBMISSION/       # ⭐ FINAL REPORT (Word document)
-├── artefacts/              # All Assignment 2 artefacts
-│   ├── backlog/
-│   ├── burndown-charts/
-│   ├── dev-progress/
-│   ├── sprint-screenshots/
-│   └── zephyr-tests/
+├── **ARTEFACTS**/          # 📁 ALL ASSIGNMENT 2 ARTEFACTS
+│   ├── Jira/               # Jira board export (CSV)
+│   ├── backlog/            # Product backlog, risk log (Excel + screenshots)
+│   ├── burndown-charts/    # Sprint 1 & 2 burndown charts
+│   ├── dev-progress/       # UI, test, and CI screenshots
+│   ├── sprint-screenshots/ # Sprint closing evidence
+│   ├── er-diagram/         # Entity relationship diagram
+│   ├── ui-mockups/         # UI wireframes/mockups
+│   ├── workflow-diagrams/  # System workflow diagrams
+│   └── zephyr-tests/       # Zephyr test cycle evidence
 └── .github/
     └── workflows/          # CI/CD (GitHub Actions)
 ```
 
 ---
 
-## Artefacts Index
+## 📁 Artefacts Index
 
-All artefacts are stored in the `/artefacts` folder.
+All artefacts are stored in the **[`artefacts/`](artefacts/)** folder.
 
 | Artefact | Location | Status |
 |----------|----------|--------|
-| Product Backlog (Excel) | artefacts/backlog/ | ✅ Done |
-| Risk Log (after Sprint 1 & 2) | artefacts/backlog/ | ✅ Done |
-| Burndown Charts (Sprint 1 & 2) | artefacts/burndown-charts/ | ✅ Done |
-| ER Diagram | artefacts/er-diagram/ | ✅ Done |
-| UI Mockups | artefacts/ui-mockups/ | ✅ Done |
-| Workflow Diagrams | artefacts/workflow-diagrams/ | ✅ Done |
-| Sprint 1 Screenshots | artefacts/sprint-screenshots/Sprint1/ | ✅ Done |
-| Sprint 2 Screenshots | artefacts/sprint-screenshots/Sprint2/ | ✅ Done |
-| UI Screenshots (Batches 8–10) | artefacts/dev-progress/UI/ | ✅ Done |
-| Test Results Screenshots | artefacts/dev-progress/tests/ | ✅ Done |
-| CI/GitHub Actions Screenshots | artefacts/dev-progress/github/ | ✅ Done |
-| Zephyr Cycle 1 Evidence | artefacts/zephyr-tests/cycle1/ | ✅ Done |
-| Zephyr Cycle 2 Evidence | artefacts/zephyr-tests/cycle2/ | ✅ Done |
+| **Jira Board Export (CSV)** | **[artefacts/Jira/](artefacts/Jira/)** | ✅ Done |
+| Product Backlog (Excel) | [artefacts/backlog/](artefacts/backlog/) | ✅ Done |
+| Risk Log (after Sprint 1 & 2) | [artefacts/backlog/](artefacts/backlog/) | ✅ Done |
+| Burndown Charts (Sprint 1 & 2) | [artefacts/burndown-charts/](artefacts/burndown-charts/) | ✅ Done |
+| ER Diagram | [artefacts/er-diagram/](artefacts/er-diagram/) | ✅ Done |
+| UI Mockups | [artefacts/ui-mockups/](artefacts/ui-mockups/) | ✅ Done |
+| Workflow Diagrams | [artefacts/workflow-diagrams/](artefacts/workflow-diagrams/) | ✅ Done |
+| Sprint 1 Screenshots | [artefacts/sprint-screenshots/Sprint1/](artefacts/sprint-screenshots/Sprint1/) | ✅ Done |
+| Sprint 2 Screenshots | [artefacts/sprint-screenshots/Sprint2/](artefacts/sprint-screenshots/Sprint2/) | ✅ Done |
+| UI Screenshots (Batches 8–10) | [artefacts/dev-progress/UI/](artefacts/dev-progress/UI/) | ✅ Done |
+| Test Results Screenshots | [artefacts/dev-progress/tests/](artefacts/dev-progress/tests/) | ✅ Done |
+| CI/GitHub Actions Screenshots | [artefacts/dev-progress/github/](artefacts/dev-progress/github/) | ✅ Done |
+| Zephyr Cycle 1 Evidence | [artefacts/zephyr-tests/cycle1/](artefacts/zephyr-tests/cycle1/) | ✅ Done |
+| Zephyr Cycle 2 Evidence | [artefacts/zephyr-tests/cycle2/](artefacts/zephyr-tests/cycle2/) | ✅ Done |
 
 ---
 

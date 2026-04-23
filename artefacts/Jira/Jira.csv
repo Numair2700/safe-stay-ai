@@ -1,0 +1,99 @@
+﻿Issue Type,Issue key,Issue id,Summary,Assignee,Assignee Id,Reporter,Reporter Id,Priority,Status,Resolution,Created,Updated,Due date
+Epic,SSAI-1,10036,Authentication & User Management,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,,31/03/2026 17:15,02/04/2026 17:40,14/04/2026 00:00
+Epic,SSAI-2,10037,Property & Manual Management,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,,31/03/2026 17:15,02/04/2026 17:38,14/04/2026 00:00
+Epic,SSAI-3,10038,AI Digital Concierge,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,,31/03/2026 17:16,02/04/2026 16:26,25/04/2026 00:00
+Epic,SSAI-4,10039,Maintenance & Reporting,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,,31/03/2026 17:16,02/04/2026 17:38,25/04/2026 00:00
+Story,SSAI-5,10040,"As a host, I want to register an account so that I can manage my properties",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:19,03/04/2026 23:35,06/04/2026 00:00
+Story,SSAI-6,10041,"As a host, I want to log in so that I can access my dashboard",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:19,03/04/2026 23:35,07/04/2026 00:00
+Story,SSAI-7,10042,"As a guest, I want to access the portal so that I can get help about my stay",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:19,07/04/2026 16:36,08/04/2026 00:00
+Story,SSAI-8,10043,"As an admin, I want to manage user roles so that access is controlled",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,31/03/2026 17:19,10/04/2026 21:17,09/04/2026 00:00
+Story,SSAI-9,10044,"As a host, I want to create a property so that guests can be linked to it",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:19,05/04/2026 15:15,10/04/2026 00:00
+Story,SSAI-10,10045,"As a host, I want to upload a house manual so that the AI can use it to answer questions",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:19,07/04/2026 16:37,11/04/2026 00:00
+Story,SSAI-11,10046,"As a host, I want to edit my property details so that information stays accurate",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:19,05/04/2026 15:15,12/04/2026 00:00
+Story,SSAI-12,10047,"As a host, I want to view all my properties so that I can manage them from one place",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:20,05/04/2026 15:15,13/04/2026 00:00
+Story,SSAI-13,10048,"As a guest, I want to ask a question about the property so that I get an instant answer",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:20,15/04/2026 23:55,18/04/2026 00:00
+Story,SSAI-14,10049,"As a guest, I want to receive a property-specific response so that the answer is relevant to my stay",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:20,15/04/2026 23:55,19/04/2026 00:00
+Story,SSAI-15,10050,"As a host, I want the AI to answer from my manual only so that guests receive accurate information",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:20,15/04/2026 23:55,20/04/2026 00:00
+Story,SSAI-16,10051,"As a host, I want to view the Q&A log so that I can see what guests are asking",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,31/03/2026 17:20,17/04/2026 20:24,21/04/2026 00:00
+Story,SSAI-17,10052,"As a guest, I want to report a maintenance issue so that the host is notified",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:21,17/04/2026 20:24,20/04/2026 00:00
+Story,SSAI-18,10053,"As a host, I want to view open maintenance reports so that I can act on them",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,High,Done,Done,31/03/2026 17:21,17/04/2026 20:24,21/04/2026 00:00
+Story,SSAI-19,10054,"As a host, I want to mark an issue as resolved so that the guest knows it is fixed",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,31/03/2026 17:21,17/04/2026 20:24,22/04/2026 00:00
+Story,SSAI-20,10055,"As a host, I want to see issue history so that I can track past problems",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,31/03/2026 17:21,17/04/2026 20:24,23/04/2026 00:00
+Subtask,SSAI-21,10057,Design registration form UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 01:20,03/04/2026 23:34,
+Subtask,SSAI-22,10059,Create users database migration,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 01:21,03/04/2026 16:52,
+Subtask,SSAI-23,10061,Build registration controller and validation,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 01:21,03/04/2026 21:10,
+Subtask,SSAI-24,10063,Write PHPUnit test for registration,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 01:21,03/04/2026 21:10,
+Subtask,SSAI-25,10065,Connect registration form to backend,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 01:21,03/04/2026 23:34,
+Subtask,SSAI-26,10099,Design login form UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:28,03/04/2026 23:41,
+Subtask,SSAI-27,10101,Build login controller with auth,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:28,03/04/2026 23:41,
+Subtask,SSAI-28,10103,Implement session management,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:28,03/04/2026 23:41,
+Subtask,SSAI-29,10105,Write PHPUnit test for login,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:28,03/04/2026 23:42,
+Subtask,SSAI-30,10107,Handle failed login error messages,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:28,03/04/2026 23:42,
+Subtask,SSAI-31,10109,Create property-specific guest route,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:30,07/04/2026 16:34,
+Subtask,SSAI-32,10111,Build guest portal view in React,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:30,07/04/2026 16:35,
+Subtask,SSAI-33,10113,Validate property link on access,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:30,07/04/2026 16:35,
+Subtask,SSAI-34,10115,Write PHPUnit test for guest access,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:30,07/04/2026 16:35,
+Subtask,SSAI-36,10119,Implement role-based middleware,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:31,10/04/2026 21:18,
+Subtask,SSAI-37,10121,Create role update controller ,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:31,10/04/2026 21:18,
+Subtask,SSAI-38,10123,Write PHPUnit test for role management,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:31,03/04/2026 23:42,
+Subtask,SSAI-39,10125,Design property creation form UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:33,05/04/2026 22:40,
+Subtask,SSAI-40,10127,Create properties database migration,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:33,03/04/2026 17:01,
+Subtask,SSAI-41,10129,Build property controller and validation,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:33,05/04/2026 22:40,
+Subtask,SSAI-42,10131,Write PHPUnit test for property creation,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:33,05/04/2026 22:40,
+Subtask,SSAI-43,10133,Design manual upload UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:33,07/04/2026 16:37,
+Subtask,SSAI-44,10135,Create manuals database migration,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:34,03/04/2026 17:03,
+Subtask,SSAI-46,10139,Link manual to property in database,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:34,03/04/2026 17:03,
+Subtask,SSAI-47,10141,Write PHPUnit test for manual upload,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:34,07/04/2026 16:37,
+Subtask,SSAI-48,10143,Build property edit form UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:38,05/04/2026 15:16,
+Subtask,SSAI-49,10145,Create update property controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:38,05/04/2026 15:16,
+Subtask,SSAI-50,10147,Add validation for required fields,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:38,05/04/2026 15:16,
+Subtask,SSAI-51,10149,Write PHPUnit test for property update,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:38,05/04/2026 15:16,
+Subtask,SSAI-52,10151,Build properties list view in React,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:40,05/04/2026 15:15,
+Subtask,SSAI-53,10153,Create get all properties controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:40,05/04/2026 15:16,
+Subtask,SSAI-54,10155,Add empty state UI component,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:40,05/04/2026 15:16,
+Subtask,SSAI-55,10157,Write PHPUnit test for properties list,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:40,05/04/2026 15:16,
+Subtask,SSAI-56,10159,Design guest Q&A chat UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:41,15/04/2026 23:58,
+Subtask,SSAI-57,10161,Build question submission controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:41,15/04/2026 23:59,
+Subtask,SSAI-58,10163,Add loading indicator component,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:41,15/04/2026 23:59,
+Subtask,SSAI-59,10165,Write PHPUnit test for question submission,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:41,15/04/2026 23:59,
+Subtask,SSAI-60,10167,Integrate OpenAI/Groq API service,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:42,16/04/2026 00:00,
+Subtask,SSAI-61,10169,Build prompt engineering logic,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:42,16/04/2026 00:00,
+Subtask,SSAI-62,10171,Implement fallback message for no answer,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:42,16/04/2026 00:00,
+Subtask,SSAI-63,10173,Write PHPUnit test for AI response,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 12:42,16/04/2026 00:00,
+Subtask,SSAI-64,10175,Build manual content parser,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:38,16/04/2026 00:00,
+Subtask,SSAI-65,10177,Constrain AI prompt to manual context only,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:38,16/04/2026 00:00,
+Subtask,SSAI-66,10179,Implement hallucination mitigation logic,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:38,16/04/2026 00:01,
+Subtask,SSAI-67,10181,Write PHPUnit test for constrained responses,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:38,16/04/2026 00:01,
+Subtask,SSAI-68,10183,Create Q&A log database migration,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:39,17/04/2026 20:24,
+Subtask,SSAI-69,10185,Build log list view in React,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:39,17/04/2026 20:24,
+Subtask,SSAI-70,10187,Create get Q&A log controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:39,17/04/2026 20:24,
+Subtask,SSAI-71,10189,Write PHPUnit test for Q&A log retrieval,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:40,17/04/2026 20:24,
+Subtask,SSAI-72,10191,Design maintenance report form UI,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:41,17/04/2026 20:25,
+Subtask,SSAI-73,10193,Create maintenance issues migration,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:41,17/04/2026 20:25,
+Subtask,SSAI-74,10195,Build report submission controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:41,17/04/2026 20:25,
+Subtask,SSAI-75,10197,Build report submission controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:41,17/04/2026 20:25,
+Subtask,SSAI-76,10199,Build maintenance reports list view,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:42,17/04/2026 20:25,
+Subtask,SSAI-77,10201,Create get open reports controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:42,17/04/2026 20:25,
+Subtask,SSAI-78,10203,Add filter by property functionality,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:42,17/04/2026 20:25,
+Subtask,SSAI-79,10205,Write PHPUnit test for reports retrieval,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:42,17/04/2026 20:25,
+Subtask,SSAI-80,10207,Add resolve button to report detail view,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-81,10209,Build update issue status controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-82,10211,Log resolution timestamp in database,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-83,10213,Write PHPUnit test for status update,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-84,10215,Build resolved issues history view,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-85,10217,Create get resolved issues controller,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-86,10219,Add reopen issue functionality,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:25,
+Subtask,SSAI-87,10221,Write PHPUnit test for issue history,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 13:43,17/04/2026 20:26,
+Task,SSAI-89,10223,Create application workflow diagrams (host and guest journeys),,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 16:16,01/04/2026 22:26,01/04/2026 00:00
+Task,SSAI-90,10224,"Set up local development environment (PHP, Composer, Node, MySQL)",,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 16:19,01/04/2026 22:30,01/04/2026 00:00
+Task,SSAI-91,10225,Set up Laravel 11 scaffold with React and Inertia.js,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 16:19,03/04/2026 16:50,02/04/2026 00:00
+Task,SSAI-92,10226,Configure GitHub Actions CI pipeline,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 16:20,03/04/2026 16:50,02/04/2026 00:00
+Task,SSAI-93,10259,Create database migrations for all core models,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 22:55,03/04/2026 16:50,03/04/2026 00:00
+Task,SSAI-94,10260,Create ER diagram for database design,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 23:25,06/04/2026 03:32,03/04/2026 00:00
+Task,SSAI-95,10261,Design UI mockups for host dashboard and guest portal,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 23:27,05/04/2026 15:15,04/04/2026 00:00
+Task,SSAI-96,10262,Install and configure Zephyr in Jira,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 23:28,11/04/2026 00:18,12/04/2026 00:00
+Task,SSAI-97,10263,Update risk log after Sprint 1 completion,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,01/04/2026 23:29,11/04/2026 00:19,14/04/2026 00:00
+Task,SSAI-98,10264,Configure OpenAI or Groq API credentials,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,02/04/2026 00:27,17/04/2026 20:19,17/04/2026 00:00
+Task,SSAI-99,10265,Export Jira project report as PDF,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,02/04/2026 00:27,21/04/2026 12:15,23/04/2026 00:00
+Task,SSAI-100,10266,Prepare final zip folder with all artefacts and README,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,02/04/2026 00:28,21/04/2026 12:15,24/04/2026 00:00
+Task,SSAI-101,10267,Update risk log after Sprint 2 completion,,,Numair,712020:ea55fb8a-ce8f-4eb2-b8f7-01b2b1f37031,Medium,Done,Done,02/04/2026 00:28,18/04/2026 03:55,25/04/2026 00:00
