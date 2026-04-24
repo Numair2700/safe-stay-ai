@@ -6,13 +6,6 @@
 
 ---
 
-## ⭐ FINAL SUBMISSION
-
-> **The final report (Word document) is in the [`FINAL_SUBMISSION/`](FINAL_SUBMISSION/) folder.**
-> File: `SWE6011_A2_2529226_Numair_Alsaleh_FINAL_SUBMISSION.docx`
-
----
-
 ## Project Overview
 
 Safe-Stay AI is a multi-tenant Property Management SaaS that automates guest support and property maintenance through an AI-powered Digital Concierge. Hosts upload their property house manuals; guests ask questions and receive instant, property-specific AI responses. Maintenance issues are logged and tracked through the platform.
@@ -90,7 +83,6 @@ safe-stay-ai/
 │       ├── Admin/
 │       ├── Guest/
 │       └── Host/
-├── FINAL_SUBMISSION/       # ⭐ FINAL REPORT (Word document)
 ├── **ARTEFACTS**/          # 📁 ALL ASSIGNMENT 2 ARTEFACTS
 │   ├── Jira/               # Jira board export (CSV)
 │   ├── backlog/            # Product backlog, risk log (Excel + screenshots)
